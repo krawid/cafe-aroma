@@ -156,7 +156,6 @@ function toggleFaqPanel(trigger) {
       var nombreErr = document.createElement('span');
       nombreErr.className = 'error-text';
       nombreErr.id = nombreErrId;
-      nombreErr.setAttribute('role', 'alert');
       nombreErr.textContent = 'Introduce tu nombre completo.';
       nombre.insertAdjacentElement('afterend', nombreErr);
       nombre.setAttribute('aria-invalid', 'true');
