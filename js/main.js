@@ -87,17 +87,22 @@
 })();
 
 // Acordeón (FAQ)
-// El último item de la lista es una excepción intencional: cambia el
-// aspecto visual pero no actualiza aria-expanded.
+// Los encabezados hacen de disparador (tabindex + Intro), sin role
+// ni aria-expanded: no se exponen como control interactivo.
 (function () {
   var triggers = document.querySelectorAll('.accordion-trigger');
   triggers.forEach(function (trigger) {
-    trigger.addEventListener('click', function () {
-      var panel = document.getElementById(trigger.getAttribute('aria-controls'));
+    function toggle() {
+      var panel = document.getElementById(trigger.getAttribute('data-target'));
       var willOpen = !panel.classList.contains('is-open');
       panel.classList.toggle('is-open', willOpen);
-      if (trigger.dataset.skipAriaSync !== 'true') {
-        trigger.setAttribute('aria-expanded', String(willOpen));
+      trigger.classList.toggle('is-active', willOpen);
+    }
+    trigger.addEventListener('click', toggle);
+    trigger.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        toggle();
       }
     });
   });

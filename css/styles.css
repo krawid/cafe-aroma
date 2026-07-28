@@ -700,6 +700,7 @@ fieldset legend {
   text-align: left;
   background: none;
   border: none;
+  margin: 0;
   padding: 20px 4px;
   display: flex;
   justify-content: space-between;
@@ -712,7 +713,7 @@ fieldset legend {
 }
 
 .accordion-trigger .chevron { transition: transform 0.2s ease; flex-shrink: 0; margin-left: 12px; }
-.accordion-trigger[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+.accordion-trigger.is-active .chevron { transform: rotate(180deg); }
 
 .accordion-panel {
   overflow: hidden;
