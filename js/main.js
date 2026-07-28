@@ -94,8 +94,8 @@
   triggers.forEach(function (trigger) {
     function toggle() {
       var panel = document.getElementById(trigger.getAttribute('data-target'));
-      var willOpen = !panel.classList.contains('is-open');
-      panel.classList.toggle('is-open', willOpen);
+      var willOpen = panel.hidden;
+      panel.hidden = !willOpen;
       trigger.classList.toggle('is-active', willOpen);
     }
     trigger.addEventListener('click', toggle);

@@ -715,15 +715,7 @@ fieldset legend {
 .accordion-trigger .chevron { transition: transform 0.2s ease; flex-shrink: 0; margin-left: 12px; }
 .accordion-trigger.is-active .chevron { transform: rotate(180deg); }
 
-.accordion-panel {
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.25s ease;
-}
-
 .accordion-panel-inner { padding: 0 4px 20px; color: var(--color-text-soft); }
-
-.accordion-panel.is-open { max-height: 400px; }
 
 /* Utility */
 .text-center { text-align: center; }
