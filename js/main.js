@@ -89,20 +89,18 @@
 // Acordeón (FAQ)
 // Los encabezados hacen de disparador (tabindex + Intro), sin role
 // ni aria-expanded: no se exponen como control interactivo.
+function toggleFaqPanel(trigger) {
+  var panel = document.getElementById(trigger.getAttribute('data-target'));
+  var willOpen = panel.hidden;
+  panel.hidden = !willOpen;
+  trigger.classList.toggle('is-active', willOpen);
+}
 (function () {
-  var triggers = document.querySelectorAll('.accordion-trigger');
-  triggers.forEach(function (trigger) {
-    function toggle() {
-      var panel = document.getElementById(trigger.getAttribute('data-target'));
-      var willOpen = panel.hidden;
-      panel.hidden = !willOpen;
-      trigger.classList.toggle('is-active', willOpen);
-    }
-    trigger.addEventListener('click', toggle);
+  document.querySelectorAll('.accordion-trigger').forEach(function (trigger) {
     trigger.addEventListener('keydown', function (e) {
       if (e.key === 'Enter') {
         e.preventDefault();
-        toggle();
+        toggleFaqPanel(trigger);
       }
     });
   });
